@@ -1,4 +1,4 @@
-name: CI/CD - Python + DockerHub
+name: CI/CD - Python + Docker Hub
 
 on:
   push:
