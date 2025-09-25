@@ -38,12 +38,4 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-flask-app:latest,${{ secrets.DOCKERHUB_USERNAME }}/docker-flask-app:${{ github.sha }}
 
-      - name: Notify Slack (optional)
-        if: always() && secrets.SLACK_WEBHOOK
-        env:
-          WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        run: |
-          status="${{ job.status }}"
-          curl -X POST -H 'Content-type: application/json' \
-            --data "{\"text\":\"CI run for ${GITHUB_REPOSITORY} finished with status: ${status}.\"}" \
-            "$WEBHOOK"
+      
